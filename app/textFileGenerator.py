@@ -7,7 +7,6 @@ desktop_path.mkdir(parents=True, exist_ok=True)
 def get_contact_details():
     data = {}
     fields = {}
-    
     columns_input = input('Enter the Total Fields number needs to be added: ')
     if columns_input.isdigit() and int(columns_input) > 0:
         columns = int(columns_input)
@@ -19,16 +18,14 @@ def get_contact_details():
         field = i
         value = input(f'Enter the field name: ')
         fields[field] = value 
-    
     validate_data(data, fields)
-
 def validate_data(data, fields):
     for key, value in fields.items():
         data[value] = input(f'Enter value for {value}: ')
 
     for key, value in data.items():
         if key.lower() == 'name':
-            file_Name = value
+            file_name = value
         if not value:
             print(f"{key} is required. Please try again.")
             return validate_data()
@@ -42,15 +39,15 @@ def validate_data(data, fields):
             print("Invalid email format. Please try again.")
             return validate_data()
         else:
-            return convert_file(data, file_Name)
+            return convert_file(data, file_name)
 
-def convert_file(data, file_Name):
-    filePath = desktop_path / f"{file_Name}.txt"
-    print("Creating file at:", filePath)
-    with open(filePath, 'a', encoding='utf-8') as f:
+def convert_file(data, file_name):
+    file_path = desktop_path / f"{file_name}.txt"
+    print("Creating file at:", file_path)
+    with open(file_path, 'a', encoding='utf-8') as f:
          for key, value in data.items():
             f.write(f"{key}: {value}\n")
-    print(f"Contact details saved to {filePath}")
+    print(f"Contact details saved to {file_path}")
 
 if __name__ == "__main__":
     print('Happy Coding :)')
