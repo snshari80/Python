@@ -6,6 +6,7 @@ desktop_path.mkdir(parents=True, exist_ok=True)
 
 def get_contact_details():
     """Prompt the user for field names and values, then validate and save them."""
+    columns = None
     data = {}
     fields = {}
     columns_input = input('Enter the Total Fields number needs to be added: ')
@@ -14,6 +15,7 @@ def get_contact_details():
     else:
         print("Please enter a valid positive integer for the number of fields.")
         get_contact_details()
+        return
 
     for i in range(columns):
         field = i
@@ -23,6 +25,7 @@ def get_contact_details():
 
 def validate_data(data, fields):
     """Validate the collected data and save to file if valid."""
+    file_name = None
     for key, value in fields.items():
         data[value] = input(f'Enter value for {value}: ')
 
@@ -54,6 +57,7 @@ def convert_file(data, file_name):
     print(f"Contact details saved to {file_path}")
 
 if __name__ == "__main__":
-    print('Happy Coding :)')
-    print('This script will help you create a text file with your required details on the Desktop.')
+    print('Happy Coding :)\n'
+          'This script will help you create a text file with your required details \n'
+          'on the Desktop.')
     get_contact_details()
