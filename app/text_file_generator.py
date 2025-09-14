@@ -15,7 +15,6 @@ def get_contact_details():
     else:
         print("Please enter a valid positive integer for the number of fields.")
         get_contact_details()
-        return
 
     for i in range(columns):
         field = i
