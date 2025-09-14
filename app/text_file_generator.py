@@ -34,16 +34,20 @@ def validate_data(data, fields):
             file_name = value
         if not value:
             print(f"{key} is required. Please try again.")
-            return validate_data(data, fields)
+            validate_data(data, fields)
+            return
         if key.lower() in ('name') and not value.isalpha():
             print("Name should only contain alphabets. Please try again.")
-            return validate_data(data, fields)
+            validate_data(data, fields)
+            return
         if condition_one and condition_two:
             print("Phone number must be a 10-digit number. Please try again.")
-            return validate_data(data, fields)
+            validate_data(data, fields)
+            return
         if key.lower() == 'email' and ('@' not in value or '.' not in value):
             print("Invalid email format. Please try again.")
-            return validate_data(data, fields)
+            validate_data(data, fields)
+            return
     if file_name:
         convert_file(data, file_name)
 
