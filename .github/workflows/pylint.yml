@@ -21,3 +21,4 @@ jobs:
     - name: Analysing the code with pylint
       run: |
         pylint $(git ls-files '*.py' ':!:tests/*' ':!:script.py')
+        echo "::set-output name=result::$PYLINT_OUTPUT"
