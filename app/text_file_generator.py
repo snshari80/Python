@@ -10,12 +10,17 @@ def get_contact_details():
     data = {}
     fields = {}
     columns_input = input('Enter the Total Fields number needs to be added: ')
-    if columns_input.isdigit() and int(columns_input) > 0:
-        columns = int(columns_input)
-    else:
+    if not (columns_input.isdigit() and int(columns_input) > 0):
         print("Please enter a valid positive integer for the number of fields.")
-        get_contact_details()
-        return False
+        return False  # consistent return
+    
+    # columns_input = input('Enter the Total Fields number needs to be added: ')
+    # if columns_input.isdigit() and int(columns_input) > 0:
+    #     columns = int(columns_input)
+    # else:
+    #     print("Please enter a valid positive integer for the number of fields.")
+    #     get_contact_details()
+    #     return False
 
     for i in range(columns):
         field = i
