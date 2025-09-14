@@ -1,14 +1,15 @@
-# def sayHello():
-#     return "Om Namashivaya!"
+"""Module for basic operations."""
+def sayHello():
+    return "Om Namashivaya!"
 
-# print(sayHello())
+print(sayHello())
 
 print('Hello! Do you want to try Python Mathamatics?')
 
 def add(a, b):
     return a + b
 def subtract(a, b):
-    return a - b 
+    return a - b
 def mulitply(a, b):
     return a * b
 def divide(a, b):
@@ -32,5 +33,4 @@ def validation(choice):
         print(f"The result is: {operations[choice](int(a), int(b))}")
     else:
         print("Invalid operation selected.")
-    
 print(validation(choice))
