@@ -1,9 +1,4 @@
-# /// script
-# requires-python = ">=3.9"
-# dependencies = [
-# ]
-# ///
-
+"""A simple script to start coding and display the current date and time."""
 from datetime import datetime
 
 
