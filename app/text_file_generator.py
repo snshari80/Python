@@ -27,6 +27,7 @@ def get_contact_details():
         value = input('Enter the field name: ')
         fields[field] = value
     validate_data(data, fields)
+    return True
 
 def validate_data(data, fields):
     """Validate the collected data and save to file if valid."""
