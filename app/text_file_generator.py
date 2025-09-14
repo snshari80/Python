@@ -12,14 +12,13 @@ def get_contact_details():
     columns_input = input('Enter the Total Fields number needs to be added: ')
     if not (columns_input.isdigit() and int(columns_input) > 0):
         print("Please enter a valid positive integer for the number of fields.")
-        return False  # consistent return
+        return  # consistent return
 
     for i in range(columns):
         field = i
         value = input('Enter the field name: ')
         fields[field] = value
     validate_data(data, fields)
-    return True
 
 def validate_data(data, fields):
     """Validate the collected data and save to file if valid."""
