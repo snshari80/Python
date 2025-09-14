@@ -17,8 +17,9 @@ def get_contact_details():
     for i in range(columns):
         field = i
         value = input(f'Enter the field name: ')
-        fields[field] = value 
+        fields[field] = value
     validate_data(data, fields)
+
 def validate_data(data, fields):
     for key, value in fields.items():
         data[value] = input(f'Enter value for {value}: ')
@@ -38,14 +39,15 @@ def validate_data(data, fields):
         if key.lower() == 'email' and ('@' not in value or '.' not in value):
             print("Invalid email format. Please try again.")
             return validate_data()
-        else:
-            return convert_file(data, file_name)
+        
+    if file_name:
+        convert_file(data, file_name)
 
 def convert_file(data, file_name):
     file_path = desktop_path / f"{file_name}.txt"
     print("Creating file at:", file_path)
     with open(file_path, 'a', encoding='utf-8') as f:
-         for key, value in data.items():
+        for key, value in data.items():
             f.write(f"{key}: {value}\n")
     print(f"Contact details saved to {file_path}")
 
