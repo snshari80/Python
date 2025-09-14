@@ -18,7 +18,24 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pylint
-    - name: Analysing the code with pylint
+    - name: Run Pylint and capture output
+      id: pylint_check
       run: |
-        pylint $(git ls-files '*.py' ':!:tests/*' ':!:script.py')
-        echo "::set-output name=result::$PYLINT_OUTPUT"
+        PYLINT_OUTPUT=$(pylint . --exit-zero) # Adjust '.' to your project directory
+        echo "result<<EOF" >> $GITHUB_OUTPUT
+        echo "$PYLINT_OUTPUT" >> $GITHUB_OUTPUT
+        echo "EOF" >> $GITHUB_OUTPUT
+    - name: Post Pylint Results to PR
+      uses: mshick/add-pr-comment@v5
+      with:
+        message: |
+          ### Pylint Results
+    # - name: Analysing the code with pylint
+    #   run: |
+    #     pylint $(git ls-files '*.py' ':!:tests/*' ':!:script.py')
+    #     echo "::set-output name=result::$PYLINT_OUTPUT"
+    # - name: Post Pylint Results to PR
+    #     uses: mshick/add-pr-comment@v5
+    #     with:
+    #       message: |
+    #         ### Pylint Results
