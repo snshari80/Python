@@ -27,12 +27,12 @@ def validate_data(data, fields):
     """Validate the collected data and save to file if valid."""
     file_name = None
 
-    condition_one = key.lower() in ('phone', 'mobile','number')
-    condition_two = (not value.isdigit() or len(value) != 10)
     for key, value in fields.items():
         data[value] = input(f'Enter value for {value}: ')
 
     for key, value in data.items():
+        condition_one = key.lower() in ('phone', 'mobile','number')
+        condition_two = (not value.isdigit() or len(value) != 10)
         if key.lower() == 'name':
             file_name = value
         if not value:
