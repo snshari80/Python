@@ -26,6 +26,9 @@ def get_contact_details():
 def validate_data(data, fields):
     """Validate the collected data and save to file if valid."""
     file_name = None
+
+    condition_one = key.lower() in ('phone', 'mobile','number')
+    condition_two = (not value.isdigit() or len(value) != 10)
     for key, value in fields.items():
         data[value] = input(f'Enter value for {value}: ')
 
@@ -38,7 +41,7 @@ def validate_data(data, fields):
         if key.lower() in ('name') and not value.isalpha():
             print("Name should only contain alphabets. Please try again.")
             return validate_data(data, fields)
-        if key.lower() in ('phone', 'mobile','number') and (not value.isdigit() or len(value) != 10):
+        if condition_one and condition_two:
             print("Phone number must be a 10-digit number. Please try again.")
             return validate_data(data, fields)
         if key.lower() == 'email' and ('@' not in value or '.' not in value):
