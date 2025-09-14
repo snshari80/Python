@@ -35,7 +35,7 @@ jobs:
           echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Post Pylint Results to PR
-        uses: mshick/add-pr-comment@v2   # ✅ correct version
+        uses: mshick/add-pr-comment@v2
         with:
           message: |
             ### 🐍 Pylint Results
