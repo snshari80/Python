@@ -33,12 +33,12 @@ operations = {
     "/": divide
 }
 
-def validation(user_choice):
+def validation(operation_choice):
     """Validate the operation and perform calculation."""
-    if user_choice in operations:
+    if operation_choice in operations:
         a = input('Enter first number: ')
         b = input('Enter second number: ')
-        print(f"The result is: {operations[user_choice](int(a), int(b))}")
+        print(f"The result is: {operations[operation_choice](int(a), int(b))}")
     else:
         print("Invalid operation selected.")
 

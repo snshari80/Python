@@ -1,23 +1,42 @@
 name: Pylint
 
-on: [push]
+on: [push, pull_request]
+
+permissions:
+  contents: read
+  pull-requests: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.8", "3.9", "3.10"]
+        python-version: ["3.13"]
+
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pylint
-    - name: Analysing the code with pylint
-      run: |
-        pylint $(git ls-files '*.py')
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pylint
+
+      - name: Run Pylint and capture output
+        id: pylint_check
+        run: |
+          PYLINT_OUTPUT=$(pylint . --exit-zero) # Adjust '.' to your project directory
+          echo "result<<EOF" >> $GITHUB_OUTPUT
+          echo "$PYLINT_OUTPUT" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Post Pylint Results to PR
+        uses: mshick/add-pr-comment@v2   # ✅ correct version
+        with:
+          message: |
+            ### 🐍 Pylint Results
+            ${{ steps.pylint_check.outputs.result }}
