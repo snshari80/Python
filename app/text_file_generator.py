@@ -49,9 +49,9 @@ def validate_data(data, fields):
             validate_data(data, fields)
             return
     if file_name:
-        convert_file(data, file_name)
+        convertfile(data, file_name)
 
-def convert_file(data, file_name):
+def convertfile(data, file_name):
     """Create a text file on the Desktop with the collected details."""
     file_path = desktop_path / f"{file_name}.txt"
     print("Creating file at:", file_path)
