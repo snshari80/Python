@@ -47,7 +47,7 @@ def validate_data(data, fields):
         if key.lower() == 'email' and ('@' not in value or '.' not in value):
             print("Invalid email format. Please try again.")
             validate_data(data, fields)
-            return
+            
     if file_name:
         convertfile(data, file_name)
 
