@@ -1,8 +1,9 @@
 """Module for basic operations."""
-def sayHello():
+def say_hello():
+    """Return a greeting."""
     return "Om Namashivaya!"
 
-print(sayHello())
+print(say_hello())
 
 print('Hello! Do you want to try Python Mathamatics?')
 
@@ -24,8 +25,6 @@ operations = {
     "/": divide
 }
 
-choice = input('Enter the operation you want to perform:')
-
 def validation(choice):
     if choice in operations:
         a = input('Enter first number: ')
@@ -33,4 +32,6 @@ def validation(choice):
         print(f"The result is: {operations[choice](int(a), int(b))}")
     else:
         print("Invalid operation selected.")
-print(validation(choice))
+
+choice = input('Enter the operation you want to perform:')
+validation(choice)
