@@ -90,46 +90,98 @@
 #tuple_datatype(tuple_datat)
 
 
-def set_datatype(data_typeone,data_typetwos):
-    # data_type2={'apple','banana','cherry','Mongo'}
-    # data.add("kiwi")
-    # data.update(data_type2)
-    # data.remove('banana')
-    # set1 = {"a", "b", "c" ,'b','a','c','d' , 1,2,3}
-    # set2 = {"a", "b", "c" ,'b','a','c',1,2,3,4,5,6}
-    # # set3 = set1 | set2
-    # set3 = set1 & set2
-    # set1.intersection_update(set2)
-    # print(set1)
-    # print(f'this is actual set ${set3}')
-    # data.discard('Mongo')
-    # if 'Mongo' not in data:
-    #     print('yes, it is not in the set')
-    # print(f'this is actually set {data}')
-    set1 = data_typeone
-    set2= data_typetwo
-    # Union
-    set3 = set1.union(set2)
-    # Intersection
-    set4 = set1.intersection(set2)
-    # Difference
-    set5 = set1.difference(set2)
-    # Symmetric Difference
-    set6 = set1.symmetric_difference(set2)
-    print(f'Symmetric Difference: {set6}')
-    print(f'Difference: {set5}')
-    print(f'Intersection: {set4}')
-    print(f'Union: {set3}')
-    print(f'Set one: {set1}')
-    print(f'Set two: {set2}')
-    return
+# def set_datatype(data_typeone,data_typetwos):
+#     # data_type2={'apple','banana','cherry','Mongo'}
+#     # data.add("kiwi")
+#     # data.update(data_type2)
+#     # data.remove('banana')
+#     # set1 = {"a", "b", "c" ,'b','a','c','d' , 1,2,3}
+#     # set2 = {"a", "b", "c" ,'b','a','c',1,2,3,4,5,6}
+#     # # set3 = set1 | set2
+#     # set3 = set1 & set2
+#     # set1.intersection_update(set2)
+#     # print(set1)
+#     # print(f'this is actual set ${set3}')
+#     # data.discard('Mongo')
+#     # if 'Mongo' not in data:
+#     #     print('yes, it is not in the set')
+#     # print(f'this is actually set {data}')
+#     set1 = data_typeone
+#     set2= data_typetwo
+#     # Union
+#     set3 = set1.union(set2)
+#     # Intersection
+#     set4 = set1.intersection(set2)
+#     # Difference
+#     set5 = set1.difference(set2)
+#     # Symmetric Difference
+#     set6 = set1.symmetric_difference(set2)
+#     print(f'Symmetric Difference: {set6}')
+#     print(f'Difference: {set5}')
+#     print(f'Intersection: {set4}')
+#     print(f'Union: {set3}')
+#     print(f'Set one: {set1}')
+#     print(f'Set two: {set2}')
+#     return
 
 
-data_typeone={'apple','banana','cherry','Mongo',1,2,3,4,5,'apple','kiwi','banana'}
-data_typetwo={'butterfruit','watermelon','jackfruit',1,2,3,4,5,5.6,6,6,7,8,9,'apple','kiwi','banana'}
-set_datatype(data_typeone,data_typetwo)
+# data_typeone={'apple','banana','cherry','Mongo',1,2,3,4,5,'apple','kiwi','banana'}
+# data_typetwo={'butterfruit','watermelon','jackfruit',1,2,3,4,5,5.6,6,6,7,8,9,'apple','kiwi','banana'}
+# set_datatype(data_typeone,data_typetwo)
+
+# this_dic = { "name":'Hari',"age":28}
+# print(this_dic)
+# # for key, value in this_dic.items():
+#     # print(f'Key is ${key} and value is {value}')
+
+# a_dict = dict(this_dic)
+# x = this_dic.get('age')
+# y = this_dic.values()
+# # print(a_dict)
+
+# dic_one = {'name': 'John', 'age': 30, 'city': 'New York'}
+# dic_two = {'name': 'Jane', 'age': 25, 'city': 'Los Angeles'}
+# dic_three = {'dic_one':dic_one,'dic_two':dic_two}
+# for i, k in dic_three.items():
+#     print(f'Key is ${i} and value is {k}')
+#     for j, l in k.items():
+#         print(f'Key is ${j} and value is {l}')
 
 
+### if else condition ###
+# numone = input('Enter first number: ')
+# numtwo = input('Enter second number: ')
 
+# print(f'First number is {numone} and second number is {numtwo}')
+# print(f'first number is greater than second number') if int(numone) > int (numtwo) else print(f'second number is greater than first number') if int(numtwo) > int(numone) else print('both numbers are equal')
+
+### match case condition ###
+# num = int(input('Enter a number: '))
+# match num:
+#     case 0:
+#         print('Zero')
+#     case 1:
+#         print('One')
+#     case 2:
+#         print('Two')
+#     case 3:
+#         print('Three')
+#     case _:
+#         print('Something else')
+
+## while loop ##
+
+i = 0
+while i <10:
+    print(i)
+    i += 1
+    # if i == 5:
+        # print('Break applied')
+        # break
+        # print('conitnue applied')
+        # continue
+else:
+    print('Loop ended')
+        
 if __name__ == "__main__":
     print("This module is for learning python.")
