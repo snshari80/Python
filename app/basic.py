@@ -171,17 +171,98 @@
 
 ## while loop ##
 
-i = 0
-while i <10:
-    print(i)
-    i += 1
-    # if i == 5:
-        # print('Break applied')
-        # break
-        # print('conitnue applied')
-        # continue
-else:
-    print('Loop ended')
+# i = 0
+# while i <10:
+#     print(i)
+#     i += 1
+#     # if i == 5:
+#         # print('Break applied')
+#         # break
+#         # print('conitnue applied')
+#         # continue
+# else:
+#     print('Loop ended')
+
+## function with recursion ##
+# def factorial(n):
+#     """Return the factorial of n."""
+#     if n == 0 or n == 1:
+#         return 1
+#     else:
+#         return n * factorial(n - 1)
+# def test(*a):
+#     print(a)
+
+# test('hari','vijay')
+# def test(**a):
+#     print(a)
+
+# test(name='hari',age='vijay')
+
+## Decorators ##
+# def decorator_function(original_function):
+#     """A simple decorator function."""
+#     def wrapper_function():
+#         return original_function()
+#     return wrapper_function
+
+# def decorator_function(original_function):
+#     def wrapper_function():
+#         print("Wrapper executed this before {}".format(original_function.__name__))
+#         return original_function().upper()
+#     return wrapper_function
+
+# def decorator_function(n):
+#     def wrapper_function(func):
+#         def inner_function():
+#             if n == 1:
+#                 return func().upper()
+#             else:
+#                 return func().lower()
+#         return inner_function
+#     return wrapper_function
+      
+# @decorator_function(2)
+# def say_Hello():
+#     """Return a greeting."""
+#     return "Hello, World!"
+
+# print(say_Hello())
+
+## class and Objects
+
+class Person:
+    def __init__(self,first_name,last_name,age):
+        self.first_name = first_name
+        self.last_name = last_name
+        self.age = age
+
+    def __str__(self):
+        return f'This is person class name {self.first_name} {self.last_name} and age is {self.age}'
+
+    def full_name(self):
+        return f'Employee full Name: {self.first_name} {self.last_name}'
+    
+
+class Employee(Person):
+    def __init__(self,first_name,last_name,age,lang,company):
+        super().__init__(first_name,last_name,age)
+        self.lang = lang
+        self.company = company
+        
+    def __str__(self):
+        return f""" 
+The Employee details are:
+{super().full_name()}
+Employee Age: {self.age}
+Programming Language: {self.lang}
+Company Name: {self.company}
+"""
+
+p1 = Employee('Hari','Nagarajan',28,'Python','TCS')
+print(p1)
+# print(p1.last_name)
+# print(p1.age)
         
 if __name__ == "__main__":
     print("This module is for learning python.")
