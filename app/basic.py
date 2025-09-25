@@ -231,38 +231,129 @@
 
 ## class and Objects
 
-class Person:
-    def __init__(self,first_name,last_name,age):
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
+# class Person:
+#     def __init__(self,first_name,last_name,age):
+#         self.first_name = first_name
+#         self.last_name = last_name
+#         self.age = age
 
-    def __str__(self):
-        return f'This is person class name {self.first_name} {self.last_name} and age is {self.age}'
+#     def __str__(self):
+#         return f'This is person class name {self.first_name} {self.last_name} and age is {self.age}'
 
-    def full_name(self):
-        return f'Employee full Name: {self.first_name} {self.last_name}'
+#     def full_name(self):
+#         return f'Employee full Name: {self.first_name} {self.last_name}'
     
 
-class Employee(Person):
-    def __init__(self,first_name,last_name,age,lang,company):
-        super().__init__(first_name,last_name,age)
-        self.lang = lang
-        self.company = company
-        
-    def __str__(self):
-        return f""" 
-The Employee details are:
-{super().full_name()}
-Employee Age: {self.age}
-Programming Language: {self.lang}
-Company Name: {self.company}
-"""
+# class Employee(Person):
+#     def __init__(self,first_name,last_name,age,lang,company):
+#         super().__init__(first_name,last_name,age)
+#         self.lang = lang
+#         self.company = company
 
-p1 = Employee('Hari','Nagarajan',28,'Python','TCS')
-print(p1)
+#     def __str__(self):
+#         return f""" 
+# The Employee details are:
+# {super().full_name()}
+# Employee Age: {self.age}
+# Programming Language: {self.lang}
+# Company Name: {self.company}
+# """
+
+# p1 = Employee('Hari','Nagarajan',28,'Python','TCS')
+# print(p1)
 # print(p1.last_name)
 # print(p1.age)
+
+# class MyMember:
+#     def __iter__(self):
+#         self.h = 1
+#         return self
+#     def __next__(self):
+#         if self.h <=10:
+#             val = self.h
+#             self.h+=1
+#             return val
+#         else:
+#             raise StopIteration
         
+
+# mymember = MyMember()
+# myiter = iter(mymember)
+
+# for i in myiter:
+#     print(i)
+
+
+# class Vehicle:
+#     def __init__(self,brand,model):
+#         self.brand = brand
+#         self.model = model
+#     def move(self):
+#         print('Moving')
+# class car(Vehicle):
+#     pass
+   
+# class boat(Vehicle):
+#     pass
+#     def move(self):
+#         print('Sailing')
+# class plane(Vehicle):
+#     pass
+#     def move(self):
+#         print('Flying')
+
+# car = car('BMW','X5')
+# boat = boat('Yamaha','FX Cruiser')
+# plane = plane('Boeing','747')
+
+# for x in (car, boat, plane):
+#     print(x.brand)
+#     print(x.model)
+#     x.move()
+
+# # print(car.move())
+# # print(boat.move())
+# # print(plane.move())
+
+## Encapsulation ##
+# class Employee:
+#     __salary = None  # Protected attribute
+
+#     def __init__(self,name,id,salary,year):
+#         self.name = name
+#         self.id = id
+#         self.__salary = salary
+#         self.year = year
+    
+#     def display(self):
+#         return f'Employee Name: {self.name}, ID: {self.id}, Salary: {self.__salary}, Year of Joining: {self.year}'
+    
+#     def get_details(self):
+#         return self.display()
+# Employee = Employee('Hari',101,50000,2020)
+# print(Employee.get_details())
+# print(Employee.name)
+# print(Employee.year)
+# print(Employee.id)  # Accessing protected attribute
+
+# ## Dates and Times ##
+# import datetime
+
+# x = datetime.datetime.now()
+# print(x)
+# print(x.strftime("%c"))
+
+## Json ##
+import json
+
+x = {
+  "name": "John",
+  "age": 30,
+  "city": "New York"
+}
+
+y = json.dumps(x , indent=9, sort_keys=True)
+print(y)
+
 if __name__ == "__main__":
     print("This module is for learning python.")
